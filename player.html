@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        (async function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const alarm = urlParams.get('alarm');
+
+            const audio = new Audio(alarm);
+            await audio.play();
+
+            audio.onended = () => {
+                window.close();
+            };
+        })()
+    </script>
+</body>
+
+</html>
