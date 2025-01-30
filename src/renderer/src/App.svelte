@@ -41,7 +41,7 @@
         const isWarningTime = alarms.some(
           (alarm) =>
             alarm.getHours() === time.getHours() &&
-            alarm.getMinutes() === time.getMinutes() - 15 &&
+            alarm.getMinutes() - 15 === time.getMinutes() &&
             alarm.getSeconds() === time.getSeconds()
         )
 
