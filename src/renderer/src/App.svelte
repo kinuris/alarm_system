@@ -17,6 +17,22 @@
     new Date().setHours(19, 0, 0, 0),
   ].map((timestamp) => new Date(timestamp))
 
+  // const alarms = [
+  //   new Date().setHours(14, 0, 0, 0),
+  //   new Date().setHours(14, 17, 0, 0),
+  //   new Date().setHours(14, 18, 0, 0),
+  //   new Date().setHours(14, 19, 0, 0),
+  //   new Date().setHours(14, 20, 0, 0),
+  //   new Date().setHours(14, 46, 0, 0),
+  //   new Date().setHours(10, 30, 0, 0),
+  //   new Date().setHours(12, 0, 0, 0),
+  //   new Date().setHours(13, 0, 0, 0),
+  //   new Date().setHours(14, 30, 0, 0),
+  //   new Date().setHours(16, 0, 0, 0),
+  //   new Date().setHours(17, 30, 0, 0),
+  //   new Date().setHours(19, 0, 0, 0)
+  // ].map((timestamp) => new Date(timestamp))
+
   let alarmSoundSet = localStorage.getItem('alarmSound') ? true : false
   let initialSoundSet = localStorage.getItem('initialSound') ? true : false
 
@@ -47,6 +63,8 @@
 
         if (isWarningTime) {
           window.electron.ipcRenderer.send('ping', localStorage.getItem('initialSound'))
+
+          return
         }
 
         const isAlarmTime = alarms.some(
@@ -58,6 +76,8 @@
 
         if (isAlarmTime) {
           window.electron.ipcRenderer.send('ping', localStorage.getItem('alarmSound'))
+
+          return
         }
       }, 1000)
     }, delay)
