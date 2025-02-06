@@ -42,7 +42,7 @@
           const alarmMinutes = alarm.getHours() * 60 + alarm.getMinutes()
           const currentMinutes = time.getHours() * 60 + time.getMinutes()
 
-          return alarmMinutes - currentMinutes === 45 && time.getSeconds() === 0
+          return alarmMinutes - currentMinutes === 15 && time.getSeconds() === 0
         })
 
         if (isWarningTime) {
