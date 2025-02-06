@@ -38,12 +38,12 @@
 
         if (!alarmSoundSet && !initialSoundSet) return
 
-        const isWarningTime = alarms.some(
-          (alarm) =>
-            alarm.getHours() === time.getHours() &&
-            alarm.getMinutes() - 15 === time.getMinutes() &&
-            alarm.getSeconds() === time.getSeconds()
-        )
+        const isWarningTime = alarms.some((alarm) => {
+          const alarmMinutes = alarm.getHours() * 60 + alarm.getMinutes()
+          const currentMinutes = time.getHours() * 60 + time.getMinutes()
+
+          return alarmMinutes - currentMinutes === 45 && time.getSeconds() === 0
+        })
 
         if (isWarningTime) {
           window.electron.ipcRenderer.send('ping', localStorage.getItem('initialSound'))

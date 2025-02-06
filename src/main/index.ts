@@ -20,11 +20,15 @@ function createWindow(): void {
     }
   })
 
+  mainWindow.on('closed', () => {
+    app.quit()
+  })
+
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
   })
 
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
 
   mainWindow.webContents.setWindowOpenHandler((details) => {
     shell.openExternal(details.url)
