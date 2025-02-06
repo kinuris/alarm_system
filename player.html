@@ -17,7 +17,10 @@
             await audio.play();
 
             audio.onended = () => {
-                window.close();
+                const remote = require('electron').remote
+
+                let w = remote.getCurrentWindow()
+                w.close()
             };
         })()
     </script>
