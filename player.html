@@ -14,7 +14,7 @@
             const alarm = urlParams.get('alarm');
 
             const audio = new Audio(alarm);
-            await audio.play();
+            audio.play();
 
             audio.onended = () => {
                 const remote = require('electron').remote
