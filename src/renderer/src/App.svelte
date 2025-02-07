@@ -11,7 +11,7 @@
     new Date().setHours(10, 30, 0, 0),
     new Date().setHours(12, 0, 0, 0),
     new Date().setHours(13, 0, 0, 0),
-    new Date().setHours(16, 36, 0, 0),
+    new Date().setHours(14, 30, 0, 0),
     new Date().setHours(16, 0, 0, 0),
     new Date().setHours(17, 30, 0, 0),
     new Date().setHours(19, 0, 0, 0)
